@@ -1,7 +1,4 @@
-#include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "9cc.h"
 
 // トークンの型を表す値
 enum {
@@ -57,15 +54,6 @@ void tokenize(char *p) {
   tokens[i].ty = TK_EOF;
   tokens[i].input = p;
 }
-
-// エラーを報告するための関数
-/*
-void error(int i) {
-  fprintf(stderr, "予期しないトークンです: %s\n",
-	  tokens[i].input);
-  exit(1);
-}
-*/
 
 void error(char *s, char *t) {
   fprintf(stderr, "%s", s);
