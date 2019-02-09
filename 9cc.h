@@ -30,4 +30,11 @@ typedef struct Node {
   int val;
 } Node;
 
+// 可変長ベクタ
+typedef struct {
+  void **data;
+  int capacity;
+  int len;
+} Vector;
+
 #endif
