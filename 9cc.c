@@ -1,18 +1,5 @@
 #include "9cc.h"
 
-// トークンの型を表す値
-enum {
-  TK_NUM = 256,  // 整数トークン
-  TK_EOF,        // 入力の終わりを示すトークン
-};
-
-// トークンの型
-typedef struct {
-  int ty;        // トークンの型
-  int val;       // tyがTK_NUMの場合、その数値
-  char *input;   // トークン文字列(エラーメッセージ用)
-} Token;
-
 // トーク内図した結果のトークン列はこの配列に保存する
 // 100個以上のトークンは来ないものとする
 Token tokens[100];
@@ -61,17 +48,6 @@ void error(char *s, char *t) {
   fprintf(stderr, "\n");
   exit(1);
 }
-
-enum {
-  ND_NUM = 256,  // 整数ノードの型
-};
-
-typedef struct Node {
-  int ty;
-  struct Node *lhs;
-  struct Node *rhs;
-  int val;
-} Node;
 
 // プロトタイプ宣言
 Node *add();
